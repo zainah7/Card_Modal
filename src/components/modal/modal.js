@@ -1,19 +1,18 @@
 import React from "react";
-import Card from "../card/card";
-import './card.css'
+import '../Card/card.js'
+import "../Card/card.css";
 
-const modal = ({ name, profilePic, description, id }) => {
+const Modal = ({ name, profilePic, description, id }) => {
   return (
     <div>
-      <button
-        className="profBtn"
-        data-bs-target={`detail{id}`}
-        data-bs-toggle="modal"
-      >
-        Click to view profile
-      </button>
+      <Modal
+            profilePic={profilePic}
+            name={name}
+            description={description}
+            id={id}
+          />
 
-      <div id={`detail{id}`} className="modal">
+      <div id={`detail${id}`} className="modal">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
@@ -39,4 +38,4 @@ const modal = ({ name, profilePic, description, id }) => {
     </div>
   );
 };
-export default modal;
+export default Modal;

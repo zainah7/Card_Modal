@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import './components/card/card.js'
+import './Components/Card/card.js'
 import reportWebVitals from './reportWebVitals';
-// import Modal from './components/modal/modal';
-
+// import modal from './Components/Modal/modal';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

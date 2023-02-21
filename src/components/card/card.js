@@ -1,5 +1,6 @@
 import "./card.css";
-import modal from "./modal/modal";
+import Modal from "../Modal/modal";
+
 
 const Card = ({ name, profilePic, handleDelete, id, description }) => {
   return (
@@ -9,21 +10,25 @@ const Card = ({ name, profilePic, handleDelete, id, description }) => {
           X
         </div>
         <div>
-          <img
-            className="img profilePic"
-            src={profilePic}
-            alt="profile pic"
-          />
+          <img className="img profilePic" src={profilePic} alt="profile pic" />
         </div>
         <div className="descr">
           <p className="name"> {name}</p>
+
+          <button
+            className="profBtn"
+            data-bs-target={`detail${id}`}
+            data-bs-toggle="modal"
+          >
+            Click to view profile
+          </button>
           {/* <button className="profileBtn"> Click to view profile</button> */}
-          <modal
+          {/* <Modal
             profilePic={profilePic}
             name={name}
             description={description}
             id={id}
-          />
+          /> */}
         </div>
       </div>
     </div>
