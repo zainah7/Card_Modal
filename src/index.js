@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import './components/card/card.js'
 import reportWebVitals from './reportWebVitals';
+// import Modal from './components/modal/modal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
