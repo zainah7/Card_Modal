@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import './Components/Card/card.js'
 import reportWebVitals from './reportWebVitals';
 // import modal from './Components/Modal/modal';
 const root = ReactDOM.createRoot(document.getElementById('root'));

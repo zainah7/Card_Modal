@@ -1,41 +1,27 @@
 import React from "react";
-import '../Card/card.js'
-import "../Card/card.css";
+import "../Card/Card";
+import "../Modal/modal.css";
 
-const Modal = ({ name, profilePic, description, id }) => {
+const Modal = ({ profile, setIsOpen }) => {
+  const { name, description, profilePic } = profile[0];
+  console.log(profilePic);
+  const handleClose = () => {
+    setIsOpen(false)
+  }
+
   return (
-    <div>
-      <Modal
-            profilePic={profilePic}
-            name={name}
-            description={description}
-            id={id}
-          />
-
-      <div id={`detail${id}`} className="modal">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-body">
-              <div>
-                <img
-                  className="img profilePic"
-                  src={profilePic}
-                  alt="profile pics"
-                />
-              </div>
-              <div className="descr">
-                <p className="name"> {name}</p>
-                <ul className="description">
-                  <li>{description[0]}</li>
-                  <li>{description[1]}</li>
-                  <li>{description[2]}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <>
+      <div className="modal-overlay">
+        <div className="modal">
+          <img src={profilePic} alt="profile" />
+          <h3>{name}</h3>
+          {description.map((desc) => (
+            <p>{desc}</p>
+          ))}
+          <button onClick={handleClose}>Close</button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Modal;

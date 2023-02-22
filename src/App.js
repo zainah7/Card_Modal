@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState } from "react";
-import Card from "./Components/Card/card";
+import Card from "./components/Card/Card";
+import Modal from "./components/Modal/Modal";
+
 
 function App() {
   const [people, updatePeople] = useState([
@@ -41,29 +43,42 @@ function App() {
     },
   ]);
 
+  const [isOpen, setIsOpen] = useState(false)
+  const [profile, setProfile] = useState({})
+
   const handleDelete = (id) => {
     let temp = people.filter((each) => each.id !== id);
     updatePeople(temp);
   };
 
+  const detailModal = (id) => {
+    let temp = people.filter((each) => each.id === id);
+    setProfile(temp);
+    setIsOpen(true)
+  };
+
+
   return (
-    <div style={{ color: "blue" }} className="App">
+    <div style={{ color: "blue"}} className="App">
       <div className="container mt-5">
         <div className="row">
           {people.map((item) => {
             return (
               <Card
+                isOpen={{isOpen, setIsOpen}}
                 key={item.id}
                 name={item.name}
                 profilePic={item.profilePic}
                 id={item.id}
                 handleDelete={handleDelete}
                 description={item.description}
+                detailsModal={detailModal}
               />
             );
           })}
         </div>
       </div>
+      {isOpen &&<Modal profile={profile} setIsOpen={setIsOpen}/>}
     </div>
   );
 }
